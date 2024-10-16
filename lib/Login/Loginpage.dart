@@ -32,18 +32,19 @@ class _LoginpageState extends State<Loginpage> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => btmnav(),
+            builder: (context) => const btmnav(),
           ));
     } catch (e) {
       print(e);
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("ALERT !"),
+          title: const Text("ALERT !"),
           content: Text(e.toString()),
           actions: [
             TextButton(
-                onPressed: () => Navigator.pop(context), child: Text("OK"))
+                onPressed: () => Navigator.pop(context),
+                child: const Text("OK"))
           ],
         ),
       );
@@ -58,11 +59,12 @@ class _LoginpageState extends State<Loginpage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("ALERT !"),
+          title: const Text("ALERT !"),
           content: Text(e.toString()),
           actions: [
             TextButton(
-                onPressed: () => Navigator.pop(context), child: Text("OK"))
+                onPressed: () => Navigator.pop(context),
+                child: const Text("OK"))
           ],
         ),
       );
@@ -71,6 +73,7 @@ class _LoginpageState extends State<Loginpage> {
 
   Future googlesignin() async {
     final google = GoogleSignIn();
+    // ignore: body_might_complete_normally_catch_error
     final user = await google.signIn().catchError((error) {});
     if (user == null) return;
     final auth = await user.authentication;
@@ -82,7 +85,7 @@ class _LoginpageState extends State<Loginpage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => btmnav(),
+          builder: (context) => const btmnav(),
         ));
   }
 
@@ -95,14 +98,14 @@ class _LoginpageState extends State<Loginpage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Container(
                     height: 110,
                     width: 100,
                     //color: Colors.blue,
-                    child: Center(
+                    child: const Center(
                         child: Image(
                       image: AssetImage("lib/images/Designer.png"),
                       fit: BoxFit.fill,
@@ -120,13 +123,13 @@ class _LoginpageState extends State<Loginpage> {
                               fontWeight: FontWeight.w600,
                               fontSize: 35,
                               shadows: [
-                                Shadow(
+                                const Shadow(
                                     color: Colors.grey,
                                     offset: Offset(0, 2),
                                     blurRadius: 5)
                               ]),
                         ),
-                        Text(
+                        const Text(
                           "Enter your credential to login",
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.w500),
@@ -143,7 +146,7 @@ class _LoginpageState extends State<Loginpage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       fillColor: Colors.grey,
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       labelText: 'Username',
                     ),
                   ),
@@ -157,7 +160,7 @@ class _LoginpageState extends State<Loginpage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       fillColor: Colors.grey,
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffixIcon: IconButton(
                           onPressed: () {
                             setState(() {
@@ -178,7 +181,7 @@ class _LoginpageState extends State<Loginpage> {
                     },
                     height: 50,
                     width: 220),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextButton(
@@ -186,12 +189,12 @@ class _LoginpageState extends State<Loginpage> {
                       showDialog(
                           context: context,
                           builder: (BuildContext) => AlertDialog(
-                                title: Text('Forgot Password'),
+                                title: const Text('Forgot Password'),
                                 content: Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: TextField(
                                     controller: forgotpassword,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                         hintText: "Enter your email",
                                         border: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -204,28 +207,28 @@ class _LoginpageState extends State<Loginpage> {
                                         forgot();
                                         Navigator.pop(context);
                                       },
-                                      child: Text('verify')),
+                                      child: const Text('verify')),
                                   TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text('cancel'))
+                                      child: const Text('cancel'))
                                 ],
                               ));
                     },
-                    child: Text("Forgot password?")),
+                    child: const Text("Forgot password?")),
                 // Text("OR"),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 60,
                     ),
-                    Text("Do you want to"),
+                    const Text("Do you want to"),
                     TextButton(
                         onPressed: () {
                           googlesignin();
                         },
-                        child: Text("Continue with google ?"))
+                        child: const Text("Continue with google ?"))
                   ],
                 ),
                 // SizedBox(
@@ -233,17 +236,17 @@ class _LoginpageState extends State<Loginpage> {
                 // ),
                 Row(
                   children: [
-                    SizedBox(width: 80),
-                    Text("Don't have an account?"),
+                    const SizedBox(width: 80),
+                    const Text("Don't have an account?"),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Signup(),
+                                builder: (context) => const Signup(),
                               ));
                         },
-                        child: Text("Sign up"))
+                        child: const Text("Sign up"))
                   ],
                 )
               ],

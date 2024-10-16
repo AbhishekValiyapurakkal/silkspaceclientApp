@@ -12,10 +12,10 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: First(),
+    home: const First(),
     routes: {
-      'checkout': (context) => Checkoutpage(),
-      'cartaddress': (context) => AddAddressCart(),
+      'checkout': (context) => const Checkoutpage(),
+      'cartaddress': (context) => const AddAddressCart(),
     },
   ));
 }
@@ -45,13 +45,13 @@ class _FirstState extends State<First> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Signup(),
+                builder: (context) => const Signup(),
               ));
         } else {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => btmnav(),
+                builder: (context) => const btmnav(),
               ));
         }
       },
