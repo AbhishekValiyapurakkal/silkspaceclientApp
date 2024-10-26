@@ -222,8 +222,8 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                   },
                   height: 50,
                   width: 150),
-              Spacer(),
-              elvbtn(txt: "Buy Now", ontap: () {}, height: 50, width: 150),
+              // Spacer(),
+              // elvbtn(txt: "Buy Now", ontap: () {}, height: 50, width: 150),
               Spacer(),
             ],
           )
