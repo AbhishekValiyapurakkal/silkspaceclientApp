@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silkspaceclient/Login/Signuppage.dart';
 import 'package:silkspaceclient/address/addaddresscart.dart';
 import 'package:silkspaceclient/bottomnavigation.dart';
-import 'package:silkspaceclient/Category%20Pages/checkout/checkoutpage.dart';
+import 'package:silkspaceclient/checkout/checkoutpage.dart';
 import 'package:silkspaceclient/firebase_options.dart';
 
 void main() async {

@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silkspaceclient/Login/Loginpage.dart';
 import 'package:silkspaceclient/Login/Signuppage.dart';
-import 'package:silkspaceclient/Category%20Pages/checkout/orderspage.dart';
+import 'package:silkspaceclient/checkout/orderspage.dart';
 import 'package:silkspaceclient/wishlist/wishlistpage.dart';
 
 class Youpage extends StatelessWidget {

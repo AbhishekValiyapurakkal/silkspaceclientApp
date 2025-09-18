@@ -1,0 +1,2 @@
+C:/Users/Abhishek/vscode projects/silkspaceclient/android/app/.cxx/Debug/61314c45/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Abhishek/vscode projects/silkspaceclient/android/app/.cxx/Debug/61314c45/arm64-v8a/CMakeFiles/rebuild_cache.dir
