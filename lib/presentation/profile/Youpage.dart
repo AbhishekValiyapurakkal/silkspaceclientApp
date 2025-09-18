@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:silkspaceclient/Login/Loginpage.dart';
-import 'package:silkspaceclient/Login/Signuppage.dart';
-import 'package:silkspaceclient/checkout/orderspage.dart';
-import 'package:silkspaceclient/wishlist/wishlistpage.dart';
+import 'package:silkspaceclient/presentation/Login/Loginpage.dart';
+import 'package:silkspaceclient/presentation/Login/Signuppage.dart';
+import 'package:silkspaceclient/presentation/checkout/orderspage.dart';
+import 'package:silkspaceclient/presentation/wishlist/wishlistpage.dart';
 
 class Youpage extends StatelessWidget {
   const Youpage({super.key});

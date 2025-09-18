@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:silkspaceclient/buttons/buttons.dart';
-import 'package:silkspaceclient/cart/cartpage.dart';
-import 'package:silkspaceclient/wishlist/wishlistpage.dart';
+import 'package:silkspaceclient/presentation/buttons/buttons.dart';
+import 'package:silkspaceclient/presentation/cart/cartpage.dart';
+import 'package:silkspaceclient/presentation/wishlist/wishlistpage.dart';
 
 class Productdescriptionpage extends StatefulWidget {
   final String id;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
-import 'package:silkspaceclient/Category%20Pages/Categoriespage.dart';
-import 'package:silkspaceclient/home/Homepage.dart';
-import 'package:silkspaceclient/profile/Youpage.dart';
-import 'package:silkspaceclient/cart/cartpage.dart';
+import 'package:silkspaceclient/presentation/Category%20Pages/Categoriespage.dart';
+import 'package:silkspaceclient/presentation/home/Homepage.dart';
+import 'package:silkspaceclient/presentation/profile/Youpage.dart';
+import 'package:silkspaceclient/presentation/cart/cartpage.dart';
 
 class btmnav extends StatefulWidget {
   const btmnav({super.key});

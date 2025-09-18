@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-import 'package:silkspaceclient/checkout/orderconfirm.dart';
+import 'package:silkspaceclient/presentation/checkout/orderconfirm.dart';
 
 class Checkoutpage extends StatefulWidget {
   const Checkoutpage({super.key});

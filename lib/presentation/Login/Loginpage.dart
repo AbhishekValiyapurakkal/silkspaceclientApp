@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:silkspaceclient/Login/Signuppage.dart';
-import 'package:silkspaceclient/bottomnavigation.dart';
-import 'package:silkspaceclient/buttons/buttons.dart';
+import 'package:silkspaceclient/presentation/Login/Signuppage.dart';
+import 'package:silkspaceclient/presentation/bottomnavigation.dart';
+import 'package:silkspaceclient/presentation/buttons/buttons.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -73,7 +73,6 @@ class _LoginpageState extends State<Loginpage> {
 
   Future googlesignin() async {
     final google = GoogleSignIn();
-    // ignore: body_might_complete_normally_catch_error
     final user = await google.signIn().catchError((error) {});
     if (user == null) return;
     final auth = await user.authentication;

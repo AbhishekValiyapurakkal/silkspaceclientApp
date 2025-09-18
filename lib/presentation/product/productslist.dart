@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:silkspaceclient/product/productdescriptionpage.dart';
+import 'package:silkspaceclient/presentation/product/productdescriptionpage.dart';
 
 class Productslist extends StatefulWidget {
   const Productslist({

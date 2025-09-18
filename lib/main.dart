@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:silkspaceclient/Login/Signuppage.dart';
-import 'package:silkspaceclient/address/addaddresscart.dart';
-import 'package:silkspaceclient/bottomnavigation.dart';
-import 'package:silkspaceclient/checkout/checkoutpage.dart';
-import 'package:silkspaceclient/firebase_options.dart';
+import 'package:silkspaceclient/presentation/Login/Signuppage.dart';
+import 'package:silkspaceclient/presentation/address/addaddresscart.dart';
+import 'package:silkspaceclient/presentation/bottomnavigation.dart';
+import 'package:silkspaceclient/presentation/checkout/checkoutpage.dart';
+import 'package:silkspaceclient/api_services/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

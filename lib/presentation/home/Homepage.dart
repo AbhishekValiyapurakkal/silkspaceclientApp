@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:silkspaceclient/product/sareeproductlist.dart';
+import 'package:silkspaceclient/presentation/product/sareeproductlist.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Homepage extends StatefulWidget {

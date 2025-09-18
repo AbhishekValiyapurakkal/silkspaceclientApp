@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:silkspaceclient/bottomnavigation.dart';
+import 'package:silkspaceclient/presentation/bottomnavigation.dart';
 
 class OrderConfirmed extends StatefulWidget {
   const OrderConfirmed({super.key});

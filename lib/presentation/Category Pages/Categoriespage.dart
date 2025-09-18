@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:silkspaceclient/Category%20Pages/catcontainer.dart';
-import 'package:silkspaceclient/product/productslist.dart';
+import 'package:silkspaceclient/presentation/Category%20Pages/catcontainer.dart';
+import 'package:silkspaceclient/presentation/product/productslist.dart';
 
 class Categoriespage extends StatefulWidget {
   const Categoriespage({super.key});
