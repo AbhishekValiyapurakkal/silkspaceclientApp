@@ -7,6 +7,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:202257059512:android:24bea041d6a347fa0a2e4d",
+        "android_client_info": {
+          "package_name": "com.example.silkspace_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202257059512-6qi7c22o48r0hrfhik13eib2d03kp8ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.silkspace_delivery",
+            "certificate_hash": "264972bb8557d295e1a2164e004bca9ab4a3a8b9"
+          }
+        },
+        {
+          "client_id": "202257059512-uv6pglit7olsl10jvc224r0f1o5a5iof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-1rOsD2cXreCvGSAuM6DWwcJFhFIXOG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202257059512-uv6pglit7olsl10jvc224r0f1o5a5iof.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "202257059512-4q2p0kee0krap4lrmhe3m4ithstahtv5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.silkspaceadmin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:202257059512:android:c6596d2c267a45d10a2e4d",
         "android_client_info": {
           "package_name": "com.example.silkspaceadmin"
