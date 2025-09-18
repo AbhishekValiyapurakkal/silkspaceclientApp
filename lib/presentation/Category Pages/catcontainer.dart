@@ -18,7 +18,6 @@ class _CatcontainerState extends State<Catcontainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.blueAccent,
       body: Center(
         child: GestureDetector(
           onTap: widget.ontap,
@@ -29,7 +28,6 @@ class _CatcontainerState extends State<Catcontainer> {
                 color: Colors.white,
                 image: DecorationImage(
                     image: widget.images,
-                    // alignment: Alignment.bottomCenter,
                     fit: BoxFit.fill),
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
@@ -47,7 +45,7 @@ class _CatcontainerState extends State<Catcontainer> {
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
                     shadows: [
-                      Shadow(
+                      const Shadow(
                           color: Colors.black54,
                           blurRadius: 10,
                           offset: Offset(0, 2))

@@ -38,7 +38,7 @@ class _CategoriespageState extends State<Categoriespage> {
           elevation: 5,
           shadowColor: Colors.black,
           backgroundColor: Colors.blue,
-          title: Row(
+          title: const Row(
             children: [
               Text(
                 "Categories",
@@ -60,7 +60,7 @@ class _CategoriespageState extends State<Categoriespage> {
           padding: const EdgeInsets.all(5.0),
           child: GridView.builder(
             itemCount: category.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               childAspectRatio: 0.5,
               crossAxisSpacing: 20,

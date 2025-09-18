@@ -22,7 +22,7 @@ class _ProductslistState extends State<Productslist> {
         elevation: 5,
         shadowColor: Colors.black,
         backgroundColor: Colors.blue,
-        title: Row(
+        title: const Row(
           children: [
             Text(
               "Products",
@@ -49,7 +49,7 @@ class _ProductslistState extends State<Productslist> {
             if (snapshot.hasError) {
               print(snapshot.error);
             } else if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: LinearProgressIndicator(),
               );
             }
@@ -73,10 +73,9 @@ class _ProductslistState extends State<Productslist> {
                                 price: snap['price']),
                           ));
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 200,
                       width: double.infinity,
-                      //color: Colors.blue,
                       child: Row(
                         children: [
                           Container(
@@ -90,7 +89,7 @@ class _ProductslistState extends State<Productslist> {
                           ),
                           Column(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Padding(
@@ -113,7 +112,7 @@ class _ProductslistState extends State<Productslist> {
                                       fontWeight: FontWeight.w600),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                                 width: 10,
                               ),
@@ -121,7 +120,7 @@ class _ProductslistState extends State<Productslist> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 2, vertical: 10),
                                 child: Text("Rs:${snap['price']}₹",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.green)),

@@ -11,7 +11,7 @@ class Productdescriptionpage extends StatefulWidget {
   final String description;
   final String image;
   final String price;
-  final String stock;
+  final int stock;
   const Productdescriptionpage(
       {super.key,
       required this.name,
@@ -39,7 +39,7 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
         'price': widget.price,
         'userId': FirebaseAuth.instance.currentUser!.email,
       });
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         duration: Duration(seconds: 2),
         content: Text(
           "Product added to cart",
@@ -65,7 +65,7 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
         'price': widget.price,
         'userId': FirebaseAuth.instance.currentUser!.email,
       });
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         duration: Duration(seconds: 2),
         content: Text(
           "Product added to wishlist",
@@ -118,7 +118,7 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Product Details",
           style: TextStyle(fontSize: 27, fontWeight: FontWeight.w800),
         ),
@@ -129,7 +129,7 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
             height: 200,
             width: 200,
             decoration: BoxDecoration(
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: Colors.black54,
                       blurRadius: 10,
@@ -143,35 +143,35 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 80,
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
                   widget.name,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),
             ],
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 50,
               ),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
                   widget.description,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
               ),
             ],
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 140,
               ),
               Padding(
@@ -180,12 +180,12 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                   children: [
                     Text(
                       widget.stock == '0' ? "out of stock" : widget.price,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.green,
                           fontSize: 35,
                           fontWeight: FontWeight.w900),
                     ),
-                    SizedBox(width: 50),
+                    const SizedBox(width: 50),
                     IconButton(
                         onPressed: () {
                           if (isWish == false) {
@@ -194,7 +194,7 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Wishlistpage()));
+                                    builder: (context) => const Wishlistpage()));
                           }
                         },
                         icon: Icon(
@@ -206,10 +206,10 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
               ),
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             children: [
-              Spacer(),
+              const Spacer(),
               elvbtn(
                   txt: isCart ? "Go to Cart" : "Add to cart",
                   ontap: () {
@@ -217,14 +217,14 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                       create();
                     } else {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Cartpage()));
+                          MaterialPageRoute(builder: (context) => const Cartpage()));
                     }
                   },
                   height: 50,
                   width: 150),
               // Spacer(),
               // elvbtn(txt: "Buy Now", ontap: () {}, height: 50, width: 150),
-              Spacer(),
+              const Spacer(),
             ],
           )
         ],
