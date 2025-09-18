@@ -62,7 +62,6 @@ class _SareeproductlistState extends State<Sareeproductlist> {
                   child: Container(
                     height: 200,
                     width: double.infinity,
-                    //color: Colors.blue,
                     child: Row(
                       children: [
                         GestureDetector(
