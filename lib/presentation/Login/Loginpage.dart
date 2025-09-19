@@ -73,7 +73,10 @@ class _LoginpageState extends State<Loginpage> {
 
   Future googlesignin() async {
     final google = GoogleSignIn();
-    final user = await google.signIn().catchError((error) {});
+    final user = await google.signIn().catchError((error) {
+      print("error : $error");
+      return null;
+    });
     if (user == null) return;
     final auth = await user.authentication;
     final credential = await GoogleAuthProvider.credential(

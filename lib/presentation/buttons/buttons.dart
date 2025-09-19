@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class elvbtn extends StatefulWidget {
@@ -26,10 +25,10 @@ class _elvbtnState extends State<elvbtn> {
           height: widget.height,
           width: widget.width,
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
+              gradient: const LinearGradient(colors: [Colors.blue, Colors.green]),
               //color: Colors.blue,
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   blurRadius: 20,
                   spreadRadius: 2,
@@ -39,8 +38,8 @@ class _elvbtnState extends State<elvbtn> {
               ]),
           child: Center(
               child: Text(
-            widget.txt!,
-            style: TextStyle(
+            widget.txt,
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
