@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:silkspaceclient/presentation/product/sareeproductlist.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -14,26 +15,16 @@ class _HomepageState extends State<Homepage> {
   List sareelist = [];
   List sareepics = [];
 
-  Future fetchsareecategories() async {
+  Future fetchData() async {
     try {
       QuerySnapshot querySnapshot =
           await FirebaseFirestore.instance.collection('sareecategories').get();
-      List sarees = querySnapshot.docs.map((doc) => doc['category']).toList();
+      List categories =
+          querySnapshot.docs.map((doc) => doc['category']).toList();
+      List covers = querySnapshot.docs.map((doc) => doc['cover']).toList();
       setState(() {
-        sareelist = sarees;
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  Future fetchsareecover() async {
-    try {
-      QuerySnapshot querySnapshot =
-          await FirebaseFirestore.instance.collection('sareecategories').get();
-      List cover = querySnapshot.docs.map((doc) => doc['cover']).toList();
-      setState(() {
-        sareepics = cover;
+        sareelist = categories;
+        sareepics = covers;
       });
     } catch (e) {
       print(e);
@@ -42,8 +33,7 @@ class _HomepageState extends State<Homepage> {
 
   @override
   void initState() {
-    fetchsareecategories();
-    fetchsareecover();
+    fetchData();
     super.initState();
   }
 
@@ -52,28 +42,28 @@ class _HomepageState extends State<Homepage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 5,
-            shadowColor: Colors.black,
-            backgroundColor: Colors.blue,
-            title: Row(
-              children: [
-                Text(
-                  "Home Page",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54,
-                      shadows: [
-                        Shadow(
-                            color: Colors.black12,
-                            offset: Offset(0, 2),
-                            blurRadius: 2)
-                      ]),
-                ),
-              ],
-            ),
-      ),
+          automaticallyImplyLeading: false,
+          elevation: 5,
+          shadowColor: Colors.black,
+          backgroundColor: Colors.blue,
+          title: const Row(
+            children: [
+              Text(
+                "Home Page",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black54,
+                    shadows: [
+                      Shadow(
+                          color: Colors.black12,
+                          offset: Offset(0, 2),
+                          blurRadius: 2)
+                    ]),
+              ),
+            ],
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -103,10 +93,10 @@ class _HomepageState extends State<Homepage> {
                                         ));
                                   },
                                   child: CircleAvatar(
-                                    backgroundImage:
-                                        NetworkImage(sareepics[index]),
-                                    foregroundImage:
-                                        NetworkImage(sareepics[index]),
+                                    backgroundImage: CachedNetworkImageProvider(
+                                        sareepics[index]),
+                                    foregroundImage: CachedNetworkImageProvider(
+                                        sareepics[index]),
                                     radius: 30,
                                     backgroundColor: Colors.white12,
                                   ),
@@ -126,7 +116,7 @@ class _HomepageState extends State<Homepage> {
                       );
                     },
                   )),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CarouselSlider(
                   items: [
                     Padding(
@@ -134,11 +124,10 @@ class _HomepageState extends State<Homepage> {
                       child: Container(
                         height: 260,
                         width: 358,
-                        // color: Colors.orange,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              const BoxShadow(
+                            boxShadow: const [
+                              BoxShadow(
                                   blurRadius: 10,
                                   color: Colors.black,
                                   spreadRadius: 5,
@@ -155,11 +144,10 @@ class _HomepageState extends State<Homepage> {
                       child: Container(
                         height: 260,
                         width: 358,
-                        //color: Colors.orange,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              const BoxShadow(
+                            boxShadow: const [
+                              BoxShadow(
                                   blurRadius: 10,
                                   color: Colors.black,
                                   spreadRadius: 5,
@@ -176,11 +164,10 @@ class _HomepageState extends State<Homepage> {
                       child: Container(
                         height: 260,
                         width: 358,
-                        //color: Colors.orange,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              const BoxShadow(
+                            boxShadow: const [
+                              BoxShadow(
                                   blurRadius: 10,
                                   color: Colors.black,
                                   spreadRadius: 5,
@@ -198,9 +185,7 @@ class _HomepageState extends State<Homepage> {
                       height: 300,
                       animateToClosest: false,
                       viewportFraction: 1.1,
-                      enlargeCenterPage: true
-                      //aspectRatio: 16 / 9,
-                      )),
+                      enlargeCenterPage: true)),
               const SizedBox(
                 height: 10,
               ),
@@ -229,21 +214,26 @@ class _HomepageState extends State<Homepage> {
                                 ));
                           },
                           child: Container(
-                            height: 200,
-                            width: 200,
-                            decoration: BoxDecoration(
+                              height: 200,
+                              width: 200,
+                              decoration: const BoxDecoration(
                                 //color: Colors.amber,
                                 boxShadow: [
-                                  const BoxShadow(
+                                  BoxShadow(
                                       color: Colors.black54,
                                       blurRadius: 5,
                                       offset: Offset(0, 2),
                                       spreadRadius: 5)
                                 ],
-                                image: DecorationImage(
-                                    image: NetworkImage(sareepics[index]),
-                                    fit: BoxFit.fill)),
-                          ),
+                              ),
+                              child: CachedNetworkImage(
+                                imageUrl: sareepics[index],
+                                fit: BoxFit.fill,
+                                placeholder: (context, url) =>
+                                    const CircularProgressIndicator(),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
+                              )),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
