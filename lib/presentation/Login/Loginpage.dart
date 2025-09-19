@@ -230,9 +230,6 @@ class _LoginpageState extends State<Loginpage> {
                         child: const Text("Continue with google ?"))
                   ],
                 ),
-                // SizedBox(
-                //   height: 5,
-                // ),
                 Row(
                   children: [
                     const SizedBox(width: 80),

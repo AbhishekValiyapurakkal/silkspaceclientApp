@@ -28,36 +28,29 @@ class First extends StatefulWidget {
 }
 
 class _FirstState extends State<First> {
-  bool finalstate = false;
-  Future getloginstate() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    bool? state = preferences.getBool('login');
-    setState(() {
-      finalstate = state!;
-    });
-  }
+  Future<void> getloginstate() async {
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  bool? state = preferences.getBool('login');
 
-  @override
-  void initState() {
-    getloginstate().whenComplete(
-      () {
-        if (finalstate == false) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Signup(),
-              ));
-        } else {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const btmnav(),
-              ));
-        }
-      },
+  if (state == false || state == null) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Signup()),
     );
-    super.initState();
+  } else {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const btmnav()),
+    );
   }
+}
+
+@override
+void initState() {
+  super.initState();
+  getloginstate();
+}
+
 
   @override
   Widget build(BuildContext context) {
