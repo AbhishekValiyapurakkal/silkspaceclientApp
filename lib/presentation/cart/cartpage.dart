@@ -39,14 +39,14 @@ class _CartpageState extends State<Cartpage> {
     }
   }
 
-  Future<List<String>> fetchstock(String product_id) async {
+  Future<List<String>> fetchstock(String productId) async {
     try {
       DocumentSnapshot productDoc = await FirebaseFirestore.instance
           .collection('products')
-          .doc(product_id)
+          .doc(productId)
           .get();
-      int stock = int.parse(productDoc['stock']);
-      log('Stock for product_id $product_id: $stock');
+      int stock = productDoc['stock'] as int;
+      log('Stock for product_id $productId: $stock');
       // return List<String>.generate(stock, (index) => (index + 1).toString());
       return stock > 0
           ? List<String>.generate(stock, (index) => (index + 1).toString())
@@ -96,7 +96,7 @@ class _CartpageState extends State<Cartpage> {
               elevation: 5,
               shadowColor: Colors.black,
               backgroundColor: Colors.blue,
-              title: Row(
+              title: const Row(
                 children: [
                   Text(
                     "CART",
@@ -135,7 +135,7 @@ class _CartpageState extends State<Cartpage> {
                       itemBuilder: (context, index) {
                         final snap = snapshot.data!.docs[index];
                         String itemId = snap.id;
-        
+
                         int.parse(selectedItems[itemId] ?? '1');
                         return FutureBuilder(
                           future: fetchstock(snap['product_id']),
@@ -147,16 +147,16 @@ class _CartpageState extends State<Cartpage> {
                             if (snapshot.hasError) {
                               log(snapshot.error.toString());
                             }
-        
+
                             List<String> quantities = snapshot.data ?? ['1'];
                             itemQuantities[itemId] = quantities;
-        
+
                             int quantity =
                                 int.parse(selectedItems[itemId] ?? '1');
                             int price = int.parse(snap['price']);
-        
+
                             bool isOutOfStock = quantities.isEmpty;
-        
+
                             if (isOutOfStock) {
                               allItemsOutOfStock = allItemsOutOfStock || true;
                             } else {
@@ -175,7 +175,7 @@ class _CartpageState extends State<Cartpage> {
                                     isOutOfStock
                                         ? "Out of stock"
                                         : "₹ ${price * quantity}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       overflow: TextOverflow.ellipsis,
                                       fontSize: 16,
                                     ),
@@ -198,14 +198,17 @@ class _CartpageState extends State<Cartpage> {
                                             ).toList(),
                                             onChanged: (newValue) {
                                               setState(() {
-                                                int previousQuantity = int.parse(
-                                                    selectedItems[itemId] ?? '1');
+                                                int previousQuantity =
+                                                    int.parse(
+                                                        selectedItems[itemId] ??
+                                                            '1');
                                                 int newQuantity =
                                                     int.parse(newValue!);
-        
-                                                total -= price * previousQuantity;
+
+                                                total -=
+                                                    price * previousQuantity;
                                                 total += price * newQuantity;
-        
+
                                                 selectedItems[itemId] =
                                                     newValue.toString();
                                               });
@@ -246,7 +249,7 @@ class _CartpageState extends State<Cartpage> {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: GestureDetector(
@@ -260,8 +263,9 @@ class _CartpageState extends State<Cartpage> {
                                       'address': addresslist.isEmpty
                                           ? "Add+New+Address+for delivery"
                                           : addresslist[0],
-                                      'phone':
-                                          phonelist.isEmpty ? " " : phonelist[0],
+                                      'phone': phonelist.isEmpty
+                                          ? " "
+                                          : phonelist[0],
                                     });
                               },
                         child: Container(
@@ -269,11 +273,11 @@ class _CartpageState extends State<Cartpage> {
                           height: 50,
                           width: 200,
                           decoration: BoxDecoration(
-                              gradient: LinearGradient(
+                              gradient: const LinearGradient(
                                   colors: [Colors.blue, Colors.green]),
                               //color: Colors.blue,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 20,
                                   spreadRadius: 2,
@@ -281,7 +285,7 @@ class _CartpageState extends State<Cartpage> {
                                   offset: Offset(0, 2),
                                 )
                               ]),
-                          child: Center(
+                          child: const Center(
                               child: Text(
                             "Checkout",
                             style: TextStyle(
