@@ -64,14 +64,14 @@ class _CheckoutpageState extends State<Checkoutpage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text(
+              content: const Text(
                   "Some products are out of stock. Please update your cart."),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Go back"),
+                  child: const Text("Go back"),
                 ),
               ],
             );
@@ -115,7 +115,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
               .get();
 
           final productData = productDoc.data() as Map<String, dynamic>;
-          final currentStock = int.parse(productData['stock']);
+          final currentStock = productData['stock'];
 
           if (currentStock >= cartQuantity) {
             // Check if stock is enough
@@ -154,7 +154,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
               .get();
 
           final productData = productDoc.data() as Map<String, dynamic>;
-          final currentStock = int.parse(productData['stock']);
+          final currentStock = productData['stock'] as int;
 
           if (currentStock >= cartQuantity) {
             // Check if stock is enough
@@ -187,7 +187,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => OrderConfirmed(),
+            builder: (context) => const OrderConfirmed(),
           ),
         );
       } catch (e) {
@@ -195,13 +195,13 @@ class _CheckoutpageState extends State<Checkoutpage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              content: Text("Something went wrong"),
+              content: const Text("Something went wrong"),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Check later?"),
+                  child: const Text("Check later?"),
                 ),
               ],
             );
@@ -221,13 +221,13 @@ class _CheckoutpageState extends State<Checkoutpage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            content: Text("Something went wrong ! Please try again"),
+            content: const Text("Something went wrong ! Please try again"),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text("Go back"))
+                  child: const Text("Go back"))
             ],
           );
         },
@@ -246,7 +246,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
         elevation: 10,
         shadowColor: Colors.black,
         backgroundColor: Colors.blue,
-        title: Text(
+        title: const Text(
           "Order Now",
           style: TextStyle(
               fontSize: 25,
@@ -278,12 +278,12 @@ class _CheckoutpageState extends State<Checkoutpage> {
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               "Deliver to:",
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             ElevatedButton(
                                 onPressed: () {
                                   Navigator.pushNamed(context, 'cartaddress',
@@ -296,7 +296,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                                 },
                                 child: Text(
                                   args['address'] == "" ? "Add" : "Change",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.blue, fontSize: 15),
                                 ))
                           ],
@@ -312,7 +312,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               args['address'].split("+").join("\n"),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
                           ),
@@ -330,7 +330,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 shadowColor: Colors.black,
                 child: RadioListTile(
                   value: 'UPI',
-                  title: Row(
+                  title: const Row(
                     children: [
                       Text(
                         'UPI',
@@ -363,7 +363,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 shadowColor: Colors.black,
                 child: RadioListTile(
                   value: 'Cash on delivery',
-                  title: Row(
+                  title: const Row(
                     children: [
                       Text(
                         'Cash on delivery',
@@ -408,15 +408,15 @@ class _CheckoutpageState extends State<Checkoutpage> {
                           padding: const EdgeInsets.all(10.0),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 "Items:",
                                 style: TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.w600),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 " ₹ ${args['totalPrice']} /-",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.green),
@@ -435,12 +435,12 @@ class _CheckoutpageState extends State<Checkoutpage> {
                                           ? Colors.black
                                           : Colors.red,
                                       fontWeight: FontWeight.w600)),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 paymentmethod == "razorpay"
                                     ? "₹ 0 /-"
                                     : " ₹ 50 /-",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.green),
@@ -457,12 +457,12 @@ class _CheckoutpageState extends State<Checkoutpage> {
                                 style: GoogleFonts.sansita(
                                     fontSize: 30, fontWeight: FontWeight.w600),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 paymentmethod == "razorpay"
                                     ? "₹ ${args['totalPrice']} /-"
                                     : ": ₹ ${int.parse(args['totalPrice']) + 50} /-",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.green),
@@ -494,13 +494,13 @@ class _CheckoutpageState extends State<Checkoutpage> {
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        content: Text("Please select a payment method"),
+                        content: const Text("Please select a payment method"),
                         actions: [
                           TextButton(
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              child: Text("Go back"))
+                              child: const Text("Go back"))
                         ],
                       );
                     },
@@ -512,11 +512,11 @@ class _CheckoutpageState extends State<Checkoutpage> {
                 height: 10,
                 width: 300,
                 decoration: BoxDecoration(
-                    gradient:
-                        LinearGradient(colors: [Colors.blue, Colors.green]),
+                    gradient: const LinearGradient(
+                        colors: [Colors.blue, Colors.green]),
                     //color: Colors.blue,
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 20,
                         spreadRadius: 2,
@@ -529,7 +529,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                   paymentmethod == "razorpay"
                       ? "Proceed To Pay"
                       : "Place Order",
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
