@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,6 @@ class _CartpageState extends State<Cartpage> {
           .get();
       int stock = productDoc['stock'] as int;
       log('Stock for product_id $productId: $stock');
-      // return List<String>.generate(stock, (index) => (index + 1).toString());
       return stock > 0
           ? List<String>.generate(stock, (index) => (index + 1).toString())
           : [];
@@ -88,7 +88,7 @@ class _CartpageState extends State<Cartpage> {
     return RefreshIndicator(
       onRefresh: fetchAddress,
       child: Container(
-        color: Colors.blue,
+        color: Colors.grey,
         child: SafeArea(
           child: Scaffold(
             appBar: AppBar(
@@ -164,7 +164,7 @@ class _CartpageState extends State<Cartpage> {
                             }
                             return ListTile(
                               leading: Image(
-                                image: NetworkImage(snap['image']),
+                                image: CachedNetworkImageProvider(snap['image']),
                                 fit: BoxFit.fill,
                               ),
                               title: Text(snap['name']),

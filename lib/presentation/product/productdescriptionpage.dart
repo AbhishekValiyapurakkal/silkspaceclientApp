@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -137,9 +138,10 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                       spreadRadius: 2)
                 ],
                 image: DecorationImage(
-                    image: NetworkImage(widget.image), fit: BoxFit.fill),
+                    image: CachedNetworkImageProvider(widget.image),
+                    fit: BoxFit.fill),
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.orange),
+                color: Colors.grey),
           ),
           Row(
             children: [
@@ -150,7 +152,8 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
                   widget.name,
-                  style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),
             ],
@@ -164,7 +167,8 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
                   widget.description,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w400),
                 ),
               ),
             ],
@@ -194,7 +198,8 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Wishlistpage()));
+                                    builder: (context) =>
+                                        const Wishlistpage()));
                           }
                         },
                         icon: Icon(
@@ -216,8 +221,10 @@ class _ProductdescriptionpageState extends State<Productdescriptionpage> {
                     if (isCart == false) {
                       create();
                     } else {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const Cartpage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Cartpage()));
                     }
                   },
                   height: 50,

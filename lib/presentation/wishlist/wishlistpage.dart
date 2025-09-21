@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class Wishlistpage extends StatelessWidget {
               elevation: 10,
               shadowColor: Colors.black,
               backgroundColor: Colors.blue,
-              title: Text(
+              title: const Text(
                 "wishlist",
                 style: TextStyle(fontWeight: FontWeight.w600),
               )),
@@ -24,7 +25,7 @@ class Wishlistpage extends StatelessWidget {
                   print(snapshot.error);
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: LinearProgressIndicator(),
                   );
                 }
@@ -35,7 +36,7 @@ class Wishlistpage extends StatelessWidget {
                       final snap = snapshot.data!.docs[index];
                       return ListTile(
                         leading: Image(
-                          image: NetworkImage(snap['image']),
+                          image: CachedNetworkImageProvider(snap['image']),
                           fit: BoxFit.fill,
                         ),
                         title: Text(snap['name']),
@@ -47,7 +48,7 @@ class Wishlistpage extends StatelessWidget {
                                   .doc(snap.id)
                                   .delete();
                             },
-                            icon: Icon(Icons.delete)),
+                            icon: const Icon(Icons.delete)),
                       );
                     });
               })),

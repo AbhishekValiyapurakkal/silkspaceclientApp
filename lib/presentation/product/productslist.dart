@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +84,7 @@ class _ProductslistState extends State<Productslist> {
                             width: 120,
                             color: Colors.grey[700],
                             child: Image(
-                              image: NetworkImage(snap['image']),
+                              image: CachedNetworkImageProvider(snap['image']),
                               fit: BoxFit.fill,
                             ),
                           ),

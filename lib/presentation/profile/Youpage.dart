@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silkspaceclient/presentation/Login/Loginpage.dart';
 import 'package:silkspaceclient/presentation/Login/Signuppage.dart';
-import 'package:silkspaceclient/presentation/checkout/orderspage.dart';
+import 'package:silkspaceclient/presentation/orders/orderspage.dart';
 import 'package:silkspaceclient/presentation/wishlist/wishlistpage.dart';
 
 class Youpage extends StatelessWidget {
@@ -13,9 +13,9 @@ class Youpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List profile = [
-      {"txt": "Your Orders", "page": Orderspage()},
-      {"txt": "Creat new account", "page": Signup()},
-      {"txt": "Whishlist", "page": Wishlistpage()},
+      {"txt": "Your Orders", "page": const Orderspage()},
+      {"txt": "Creat new account", "page": const Signup()},
+      {"txt": "Whishlist", "page": const Wishlistpage()},
       {"txt": "LogOut"},
     ];
     return Container(
@@ -27,7 +27,7 @@ class Youpage extends StatelessWidget {
               elevation: 5,
               shadowColor: Colors.black,
               backgroundColor: Colors.blue,
-              title: Row(
+              title: const Row(
                 children: [
                   Text(
                     "Silk Space",
@@ -58,7 +58,7 @@ class Youpage extends StatelessWidget {
                           showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                              content: Text("Do you want to logout ?"),
+                              content: const Text("Do you want to logout ?"),
                               actions: [
                                 TextButton(
                                     onPressed: () async {
@@ -69,15 +69,15 @@ class Youpage extends StatelessWidget {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => Loginpage(),
+                                            builder: (context) => const Loginpage(),
                                           ));
                                     },
-                                    child: Text("yes")),
+                                    child: const Text("yes")),
                                 TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: Text("No")),
+                                    child: const Text("No")),
                               ],
                             ),
                           );
@@ -96,7 +96,7 @@ class Youpage extends StatelessWidget {
                       ),
                       trailing: IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_forward_ios_outlined,
                             weight: 80,
                             size: 25,

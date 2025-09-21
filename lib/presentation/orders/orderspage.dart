@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:silkspaceclient/presentation/ordertracking/ordertrack.dart';
@@ -13,7 +14,7 @@ class Orderspage extends StatelessWidget {
             elevation: 10,
             shadowColor: Colors.black,
             backgroundColor: Colors.blue,
-            title: SizedBox(height: 40, child: Text("Orders")),
+            title: const SizedBox(height: 40, child: Text("Orders")),
           ),
           body: StreamBuilder(
             stream: FirebaseFirestore.instance.collection('orders').snapshots(),
@@ -22,7 +23,7 @@ class Orderspage extends StatelessWidget {
                 print(snapshot.error);
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return LinearProgressIndicator();
+                return const LinearProgressIndicator();
               }
               return ListView.builder(
                   shrinkWrap: true,
@@ -41,7 +42,7 @@ class Orderspage extends StatelessWidget {
                               ));
                         },
                         leading: Image(
-                          image: NetworkImage(snap['image']),
+                          image: CachedNetworkImageProvider(snap['image']),
                           fit: BoxFit.fill,
                         ),
                         title: Text(snap['name']),
@@ -51,7 +52,7 @@ class Orderspage extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                  content: Text("Do you want to cancel order?"),
+                                  content: const Text("Do you want to cancel order?"),
                                   actions: [
                                     TextButton(
                                         onPressed: () {
@@ -61,17 +62,17 @@ class Orderspage extends StatelessWidget {
                                               .doc(snap.id)
                                               .delete();
                                         },
-                                        child: Text(
+                                        child: const Text(
                                           "YES",
                                           style: TextStyle(color: Colors.red),
                                         )),
                                     TextButton(
-                                        onPressed: () {}, child: Text("NO")),
+                                        onPressed: () {}, child: const Text("NO")),
                                   ],
                                 ),
                               );
                             },
-                            icon: Icon(Icons.delete)),
+                            icon: const Icon(Icons.delete)),
                       ),
                     );
                   });
