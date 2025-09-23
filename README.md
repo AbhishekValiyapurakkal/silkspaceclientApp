@@ -4,7 +4,7 @@ Silkspace Client App is a Flutter-based mobile application that allows users to 
 
 ## Features
 
-- **User Authentication:** Register and login using email/password.
+- **User Authentication:** Register and login using email/password,google sign-in.
 - **Service Booking:** Browse and book services from available options.
 - **Order Tracking:** Track status of booked services in real-time.
 - **Responsive Design:** Works on Android and iOS devices.
