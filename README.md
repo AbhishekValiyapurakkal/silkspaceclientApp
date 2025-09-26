@@ -1,16 +1,22 @@
-# silkspaceclient
+# Silkspace – Client App
 
-A new Flutter project.
+Silkspace Client App is a Flutter-based mobile application that allows users to seamlessly book and manage services. This app is part of the Silkspace ecosystem, which also includes Admin and Delivery Partner modules. The Client App focuses on providing a smooth user experience for service requests and tracking.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **User Authentication:** Register and login using email/password,google sign-in.
+- **Service Booking:** Browse and book services from available options.
+- **Order Tracking:** Track status of booked services in real-time.
+- **Responsive Design:** Works on Android and iOS devices.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter** – Cross-platform mobile development
+- **Firebase** – Authentication, Firestore, and Real-Time Database
+- **Http** – API requests
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+### Clone the repository
+```bash
+git clone https://github.com/AbhishekValiyapurakkal/silkspaceclientApp.git
