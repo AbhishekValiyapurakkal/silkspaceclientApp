@@ -23,7 +23,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
             elevation: 5,
             shadowColor: Colors.black,
             backgroundColor: Colors.blue,
-            title: Row(
+            title: const Row(
               children: [
                 Text(
                   "saree",
@@ -51,7 +51,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
               print(snapshot.error);
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return LinearProgressIndicator();
+              return const LinearProgressIndicator();
             }
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
@@ -59,7 +59,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
                 final snap = snapshot.data!.docs[index];
                 return Padding(
                   padding: const EdgeInsets.all(6.0),
-                  child: Container(
+                  child: SizedBox(
                     height: 200,
                     width: double.infinity,
                     child: Row(
@@ -91,7 +91,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
                         ),
                         Column(
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Padding(
@@ -112,7 +112,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
                                     fontSize: 14, fontWeight: FontWeight.w600),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                               width: 10,
                             ),
@@ -120,7 +120,7 @@ class _SareeproductlistState extends State<Sareeproductlist> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 2, vertical: 10),
                               child: Text("Rs:${snap['price']}₹",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 25,
                                       fontWeight: FontWeight.w600,
                                       color: Colors.green)),

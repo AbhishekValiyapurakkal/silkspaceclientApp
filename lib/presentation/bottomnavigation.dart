@@ -15,7 +15,7 @@ class btmnav extends StatefulWidget {
 class _btmnavState extends State<btmnav> {
   int currentindex = 0;
 
-  List screens = [Homepage(), Categoriespage(), Cartpage(), Youpage()];
+  List screens = [const Homepage(), const Categoriespage(), const Cartpage(), const Youpage()];
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class _btmnavState extends State<btmnav> {
       bottomNavigationBar: SnakeNavigationBar.color(
           behaviour: SnakeBarBehaviour.floating,
           snakeShape: SnakeShape.circle,
-          padding: EdgeInsets.symmetric(horizontal: 5),
-          shape: RoundedRectangleBorder(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(10))),
           backgroundColor: Colors.blue.shade500,
           elevation: 50,
@@ -38,7 +38,7 @@ class _btmnavState extends State<btmnav> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.blue.shade900,
           showUnselectedLabels: true,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.menu_rounded), label: 'Categories'),

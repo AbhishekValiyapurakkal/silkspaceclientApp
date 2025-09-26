@@ -304,7 +304,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Container(
+                        child: SizedBox(
                           height: 100,
                           width: double.infinity,
                           // color: Colors.white,
@@ -479,7 +479,7 @@ class _CheckoutpageState extends State<Checkoutpage> {
           ],
         ),
       ),
-      bottomSheet: Container(
+      bottomSheet: SizedBox(
         height: 100,
         child: Padding(
           padding: const EdgeInsets.all(15.0),

@@ -79,7 +79,7 @@ class _LoginpageState extends State<Loginpage> {
     });
     if (user == null) return;
     final auth = await user.authentication;
-    final credential = await GoogleAuthProvider.credential(
+    final credential = GoogleAuthProvider.credential(
         accessToken: auth.accessToken, idToken: auth.idToken);
     await FirebaseAuth.instance.signInWithCredential(credential);
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -103,7 +103,7 @@ class _LoginpageState extends State<Loginpage> {
                 const SizedBox(
                   height: 50,
                 ),
-                Container(
+                SizedBox(
                     height: 110,
                     width: 100,
                     //color: Colors.blue,
@@ -112,7 +112,7 @@ class _LoginpageState extends State<Loginpage> {
                       image: AssetImage("lib/images/Designer.png"),
                       fit: BoxFit.fill,
                     ))),
-                Container(
+                SizedBox(
                   height: 80,
                   width: 300,
                   //color: Colors.blue,

@@ -218,9 +218,9 @@ class _AddAddressCartState extends State<AddAddressCart> {
                       }
                     },
                     style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(Size(200, 50)),
+                        minimumSize: WidgetStateProperty.all(Size(200, 50)),
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.blueGrey)),
+                            WidgetStateProperty.all(Colors.blueGrey)),
                     child: Text(
                       "Save Address",
                       style: GoogleFonts.acme(color: Colors.black),
@@ -249,9 +249,9 @@ class _AddAddressCartState extends State<AddAddressCart> {
                   });
                 },
                 style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(Size(200, 50)),
+                    minimumSize: WidgetStateProperty.all(Size(200, 50)),
                     backgroundColor:
-                        MaterialStateProperty.all(Colors.blueGrey)),
+                        WidgetStateProperty.all(Colors.blueGrey)),
                 child: Text(
                   "Done",
                   style: GoogleFonts.acme(color: Colors.black),

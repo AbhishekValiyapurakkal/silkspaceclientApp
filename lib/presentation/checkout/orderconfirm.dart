@@ -18,9 +18,9 @@ class _OrderConfirmedState extends State<OrderConfirmed> {
           Center(
             child: Lottie.asset('assets/animation.json'),
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           MaterialButton(
-            animationDuration: Duration(seconds: 10),
+            animationDuration: const Duration(seconds: 10),
             autofocus: true,
             color: Colors.blueGrey,
             height: 60,
@@ -28,10 +28,10 @@ class _OrderConfirmedState extends State<OrderConfirmed> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => btmnav(),
+                    builder: (context) => const btmnav(),
                   ));
             },
-            child: Text(
+            child: const Text(
               "Continue Shopping",
               style: TextStyle(color: Colors.black),
             ),

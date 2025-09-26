@@ -233,7 +233,7 @@ class _CartpageState extends State<Cartpage> {
                         );
                       });
                 }),
-            bottomSheet: Container(
+            bottomSheet: SizedBox(
               height: 100,
               child: Row(
                 children: [

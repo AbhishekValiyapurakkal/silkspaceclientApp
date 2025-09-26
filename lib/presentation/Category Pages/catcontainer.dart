@@ -35,7 +35,7 @@ class _CatcontainerState extends State<Catcontainer> {
                       color: Colors.black87.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 4,
-                      offset: Offset(0, 2))
+                      offset: const Offset(0, 2))
                 ]),
             child: Center(
               child: Text(
