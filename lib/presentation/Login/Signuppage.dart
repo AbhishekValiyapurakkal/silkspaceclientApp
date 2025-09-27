@@ -59,11 +59,11 @@ class _SignupState extends State<Signup> {
               const SizedBox(
                 height: 50,
               ),
-              SizedBox(
+              const SizedBox(
                   height: 110,
                   width: 100,
                   //color: Colors.blue,
-                  child: const Center(
+                  child: Center(
                       child: Image(
                     image: AssetImage("lib/images/Designer.png"),
                     fit: BoxFit.fill,
