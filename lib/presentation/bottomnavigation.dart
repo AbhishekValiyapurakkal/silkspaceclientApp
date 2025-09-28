@@ -15,7 +15,12 @@ class btmnav extends StatefulWidget {
 class _btmnavState extends State<btmnav> {
   int currentindex = 0;
 
-  List screens = [const Homepage(), const Categoriespage(), const Cartpage(), const Youpage()];
+  List screens = [
+    const Homepage(),
+    const Categoriespage(),
+    const Cartpage(),
+    const Youpage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,7 @@ class _btmnavState extends State<btmnav> {
             });
           },
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.blue.shade900,
+          unselectedItemColor: Colors.white,
           showUnselectedLabels: true,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
