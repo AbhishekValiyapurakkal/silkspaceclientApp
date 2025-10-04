@@ -46,10 +46,12 @@ class Youpage extends StatelessWidget {
               ),
             ),
             body: ListView.builder(
+              padding: const EdgeInsets.only(top: 100),
               itemCount: profile.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
                   child: Card(
                     elevation: 10,
                     child: ListTile(
@@ -69,7 +71,8 @@ class Youpage extends StatelessWidget {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => const Loginpage(),
+                                            builder: (context) =>
+                                                const Loginpage(),
                                           ));
                                     },
                                     child: const Text("yes")),
@@ -95,7 +98,13 @@ class Youpage extends StatelessWidget {
                             fontWeight: FontWeight.w900),
                       ),
                       trailing: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => profile[index]["page"],
+                                ));
+                          },
                           icon: const Icon(
                             Icons.arrow_forward_ios_outlined,
                             weight: 80,
