@@ -45,75 +45,91 @@ class Youpage extends StatelessWidget {
                 ],
               ),
             ),
-            body: ListView.builder(
-              padding: const EdgeInsets.only(top: 100),
-              itemCount: profile.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-                  child: Card(
-                    elevation: 10,
-                    child: ListTile(
-                      onTap: () async {
-                        if (profile[index]["txt"] == "LogOut") {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              content: const Text("Do you want to logout ?"),
-                              actions: [
-                                TextButton(
-                                    onPressed: () async {
-                                      await FirebaseAuth.instance.signOut();
-                                      SharedPreferences preferences =
-                                          await SharedPreferences.getInstance();
-                                      preferences.setBool('login', false);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Loginpage(),
-                                          ));
-                                    },
-                                    child: const Text("yes")),
-                                TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text("No")),
-                              ],
-                            ),
-                          );
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => profile[index]["page"],
-                              ));
-                        }
-                      },
-                      title: Text(
-                        profile[index]["txt"],
-                        style: GoogleFonts.modernAntiqua(
-                            fontWeight: FontWeight.w900),
-                      ),
-                      trailing: IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => profile[index]["page"],
-                                ));
+            body: Column(
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(top: 50),
+                  itemCount: profile.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 20),
+                      child: Card(
+                        elevation: 10,
+                        child: ListTile(
+                          onTap: () async {
+                            if (profile[index]["txt"] == "LogOut") {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  content:
+                                      const Text("Do you want to logout ?"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () async {
+                                          await FirebaseAuth.instance.signOut();
+                                          SharedPreferences preferences =
+                                              await SharedPreferences
+                                                  .getInstance();
+                                          preferences.setBool('login', false);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const Loginpage(),
+                                              ));
+                                        },
+                                        child: const Text("yes")),
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text("No")),
+                                  ],
+                                ),
+                              );
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        profile[index]["page"],
+                                  ));
+                            }
                           },
-                          icon: const Icon(
-                            Icons.arrow_forward_ios_outlined,
-                            weight: 80,
-                            size: 25,
-                          )),
-                    ),
-                  ),
-                );
-              },
+                          title: Text(
+                            profile[index]["txt"],
+                            style: GoogleFonts.modernAntiqua(
+                                fontWeight: FontWeight.w900),
+                          ),
+                          trailing: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          profile[index]["page"],
+                                    ));
+                              },
+                              icon: const Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                weight: 80,
+                                size: 25,
+                              )),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 70,
+                ),
+                Text(
+                  "Made with ❤️ in INDIA",
+                  style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                )
+              ],
             )),
       ),
     );

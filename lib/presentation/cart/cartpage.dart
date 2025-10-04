@@ -88,7 +88,7 @@ class _CartpageState extends State<Cartpage> {
     return RefreshIndicator(
       onRefresh: fetchAddress,
       child: Container(
-        color: Colors.grey,
+        color: Colors.blue,
         child: SafeArea(
           child: Scaffold(
             appBar: AppBar(
@@ -164,7 +164,8 @@ class _CartpageState extends State<Cartpage> {
                             }
                             return ListTile(
                               leading: Image(
-                                image: CachedNetworkImageProvider(snap['image']),
+                                image:
+                                    CachedNetworkImageProvider(snap['image']),
                                 fit: BoxFit.fill,
                               ),
                               title: Text(snap['name']),
